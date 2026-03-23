@@ -1,0 +1,54 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets/local config
+.env
+.env.*
+
+# Streamlit local config/state
+.streamlit/secrets.toml
+
+# Vector databases and generated artifacts
+db/chroma_db/
+RAG/db/chroma_db/
+*.sqlite3
+*.bin
+*.pickle
+
+# Project-local env files
+RAG/.env
+UI/.env
