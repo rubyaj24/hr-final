@@ -35,12 +35,7 @@ def load_hr_huggingface_datasets():
 
     datasets_list = [
         "EmbraceCoder/HR_Policy",
-        "Synkro123/hr-policy-traces",
-        "syncora/hr-policies-qa-dataset",
-        "saunak14/sample_employee_dataset",
-        "SRIHARSHATA/employees",
-        "Farica10/Employee_attributes",
-        "kmrmanish/Employees_Reviews_Dataset"
+        "Synkro123/hr-policy-traces"
     ]
 
     documents = []
