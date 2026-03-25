@@ -8,7 +8,7 @@ user_input = st.text_input("Enter your message:")
 if user_input:
     try:
         response = requests.post(
-            "http://127.0.0.1:8000/retrieve",
+            "http://127.0.0.1:8000/ask",
             json={"query": user_input}
         )
         response.raise_for_status()

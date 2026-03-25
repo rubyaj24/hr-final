@@ -25,12 +25,12 @@ def dedupe_docs(docs, max_docs=5):
     return unique
 
 
-def main():
+def generate_answer(query: str):
     # Load .env from the same folder as this script
     env_path = Path(__file__).resolve().parent / ".env"
     load_dotenv(env_path)
 
-    groq_key = os.getenv("groq_key")
+    groq_key = os.getenv("GROQ_API_KEY")
     if not groq_key:
         raise RuntimeError(
             "Missing GROQ_API_KEY. Set environment variable or add it to RAG/.env"
@@ -47,10 +47,10 @@ def main():
         embedding_function=embedding_model,
     )
 
-    query = "What is the leave policy?"
+    query = query
     retriever = db.as_retriever(search_kwargs={"k": 8})
     retrieved_docs = retriever.invoke(query)
-    relevant_docs = dedupe_docs(retrieved_docs, max_docs=5)
+    relevant_docs = dedupe_docs(retrieved_docs, max_docs=3)
 
     print(f"\nUser Query: {query}")
     print("\n--- Retrieved Context (Deduplicated) ---\n")
@@ -74,11 +74,10 @@ If the information is not available, say:
 """
 
     model = ChatGroq(
-        model="llama3-8b-instant",
-        temperature=0,
-        api_key=groq_key,
-    )
-
+    model="llama-3.1-8b-instant",  # ✅ fixed
+    temperature=0,
+    api_key=groq_key,
+)
     messages = [
         SystemMessage(content="You are an HR helpdesk assistant."),
         HumanMessage(content=combined_input),
@@ -89,6 +88,7 @@ If the information is not available, say:
     print("\n--- Generated Response ---\n")
     print(result.content)
 
+    return result.content
 
-if __name__ == "__main__":
-    main()
+    
+
