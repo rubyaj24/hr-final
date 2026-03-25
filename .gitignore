@@ -37,7 +37,6 @@ Thumbs.db
 
 # Secrets/local config
 .env
-.env.*
 
 # Streamlit local config/state
 .streamlit/secrets.toml
