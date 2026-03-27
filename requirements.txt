@@ -1,0 +1,16 @@
+fastapi
+pydantic
+uvicorn
+streamlit
+requests
+python-dotenv
+pandas
+datasets
+kagglehub
+langchain-core
+langchain-chroma
+langchain-huggingface
+langchain-groq
+langchain-text-splitters
+sentence-transformers
+pytest
